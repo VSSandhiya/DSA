@@ -86,4 +86,36 @@ class Solution:
         root.right=self.sortedArrayToBST(nums[mid+1:])
         return root
 
-# 
+# pascal 2 
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        r=[1]
+        for i in range(1,rowIndex+1):
+            pe=r[i-1]
+            ce=pe*(rowIndex-i+1)//i 
+            r.append(ce)
+        return r
+#pascals 1 
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows==0:
+            return []
+        if numRows==1:
+            return [[1]]
+        pr=self.generate(numRows-1)
+        ps=pr[-1]
+        cr=[1]
+        for i in range(1,numRows-1):
+            cr.append(ps[i-1]+ps[i])
+        cr.append(1)
+        pr.append(cr)
+        return pr
+# best time to sell stock 
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        mp=float('inf')
+        p=0 
+        for i in prices:
+            mp=min(mp,i)
+            p=max(p,i-mp)
+        return p
