@@ -163,3 +163,19 @@ class Solution:
         a=len(nums)
         b=a*(a+1)//2 
         return b-sum(nums)
+#intersection of two list 
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        a=set(nums1)
+        b=set(nums2)
+        return list(a&b)
+#intersection of two aray 2
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        r=[]
+        a=nums2.copy()
+        for i in nums1:
+            if i in a:
+                r.append(i)
+                a.remove(i)
+        return r
