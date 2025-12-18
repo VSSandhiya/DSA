@@ -157,3 +157,9 @@ class Solution:
                 return True 
             a[j]=i 
         return False
+#missing elements 
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        a=len(nums)
+        b=a*(a+1)//2 
+        return b-sum(nums)
