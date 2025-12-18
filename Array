@@ -119,3 +119,41 @@ class Solution:
             mp=min(mp,i)
             p=max(p,i-mp)
         return p
+#find single number 
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        r=0 
+        for i in nums:
+            r^=i 
+        return r 
+
+#max occurance 
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        c=0 
+        d=None 
+        for i in nums:
+            if c==0:
+                d=i 
+            if i==d:
+                c+=1 
+            else:
+                c-=1 
+        return d
+#contains duplicate 
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        a=len(nums)
+        b=len(set(nums)) 
+        if a!=b:
+            return True 
+        return False
+# contains duplicates 2
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        a={}
+        for i,j in enumerate (nums):
+            if j in a and i-a[j]<=k:
+                return True 
+            a[j]=i 
+        return False
