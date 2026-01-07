@@ -262,3 +262,23 @@ class Solution:
             if all(ch in row for ch in w):
                 result.append(word)
         return result
+#RElative path
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
+        sorted_scores = sorted(score, reverse=True)
+        rank_map = {}
+        for i, s in enumerate(sorted_scores):
+            if i == 0:
+                rank_map[s] = "Gold Medal"
+            elif i == 1:
+                rank_map[s] = "Silver Medal"
+            elif i == 2:
+                rank_map[s] = "Bronze Medal"
+            else:
+                rank_map[s] = str(i + 1)
+        return [rank_map[s] for s in score]
+#array partition 
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        return sum(nums[::2])
