@@ -315,3 +315,18 @@ class Solution:
             b = min(b, j)
         
         return a * b
+#minimum index sum of 2 list
+class Solution:
+    def findRestaurant(self, list1, list2):
+        pos = {word: i for i, word in enumerate(list1)}
+        min_sum = float('inf')
+        ans = []
+        for j, word in enumerate(list2):
+            if word in pos:
+                s = j + pos[word]
+                if s < min_sum:
+                    min_sum = s
+                    ans = [word]
+                elif s == min_sum:
+                    ans.append(word)
+        return ans
