@@ -330,3 +330,21 @@ class Solution:
                 elif s == min_sum:
                     ans.append(word)
         return ans
+Reverese the bits::
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            bit = (n >> i) & 1
+            res |= (bit << (31 - i))
+        return res
+
+Number of 1 bit 
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        count = 0
+        while n > 0:
+            count += n & 1   # check last bit
+            n >>= 1          # shift right by 1
+        return count
+
